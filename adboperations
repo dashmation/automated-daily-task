@@ -1,0 +1,39 @@
+adb shell dumpsys battery
+
+adb shell ls sys/class/thermal/                     #to get list of thermal zones and then:
+
+adb shell cat sys/class/thermal/[name of thermal zone]/temp            #CPU temperature
+
+adb shell cat sys/class/thermal/thermal_zone{0..29}/type     #to check type e.g. CPU, battery, front, back
+
+adb shell top -m 10 #CPU usage per application in android
+
+adb -s b2f44371 shell dumpsys cpuinfo | grep -i com.android.airtelgaming  
+
+adb -s b2f44371 shell dumpsys meminfo | grep -i com.android.airtelgaming
+
+adb -s b2f44371 shell dumpsys batterystats | grep -i com.android.airtelgaming
+
+adb -s b2f44371 shell df -h | grep -i com.android.airtelgaming
+
+adb shell top -m 10 | grep -i com.android.airtelgaming
+
+adb shell dumpsys gfxinfo
+
+adb -s b2f44371 shell dumpsys gfxinfo | grep -i com.android.airtelgaming
+
+adb shell dumpsys gfxinfo com.android.airtelgaming
+
+adb shell dumpsys gfxinfo com.android.airtelgaming framestats
+
+adb shell dumpsys netstats detail | grep -i com.android.airtelgaming
+
+adb shell dumpsys package com.android.airtelgaming | grep userId
+
+adb shell dumpsys package com.android.airtelgaming
+
+adb shell dumpsys batterystats --charged com.android.airtelgaming
+
+adb shell dumpsys procstats --hours 3
+
+adb shell dumpsys meminfo com.android.airtelgaming -d
